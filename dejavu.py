@@ -13,7 +13,8 @@ from argparse import RawTextHelpFormatter
 
 warnings.filterwarnings("ignore")
 
-DEFAULT_CONFIG_FILE = "dejavu.cnf.SAMPLE"
+# DEFAULT_CONFIG_FILE = "dejavu.cnf.SAMPLE"
+DEFAULT_CONFIG_FILE = "dejavu.cnf.SQLITE_SAMPLE"
 
 
 def init(configpath):
@@ -62,6 +63,8 @@ if __name__ == '__main__':
         # print "Using default config file: %s" % (config_file)
 
     djv = init(config_file)
+    print("init")
+    
     if args.fingerprint:
         # Fingerprint all files in a directory
         if len(args.fingerprint) == 2:

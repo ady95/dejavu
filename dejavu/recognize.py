@@ -100,11 +100,13 @@ class MicrophoneRecognizer(BaseRecognizer):
         return len(self.data[0]) / self.rate
 
     def recognize(self, seconds=10):
+        print("start recording")
         self.start_recording()
         for i in range(0, int(self.samplerate / self.chunksize
-                              * seconds)):
+                              * int(seconds))):
             self.process_recording()
         self.stop_recording()
+        print("stop recording")
         return self.recognize_recording()
 
 
